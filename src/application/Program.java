@@ -3,7 +3,10 @@ package application;
 import java.util.Locale;
 import java.util.Scanner;
 
-import entities.Product;
+import entities.Department;
+import entities.Worker;
+import entities.enums.WorkerLevel;
+
 
 
 public class Program {
@@ -13,42 +16,21 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
+		System.out.print("Enter department's name:");
+		String departmentName = sc.nextLine();
+		System.out.println("Enter worker data: ");
+		System.out.print("Name: ");
+		String workerName = sc.nextLine();
+		System.out.print("Level: ");
+		String workerLevel = sc.nextLine();
+		System.out.print("Base Salary: ");
+		double baseSalary = sc.nextDouble();
 		
-		Product product = new Product();
-		System.out.println("Enter product data: ");
-		System.out.println("Name: ");
-		product.name = sc.nextLine();
-		System.out.print("Price:");
-		product.price = sc.nextDouble();
-		System.out.print("Quantity in stock: ");
-		product.quantity = sc.nextInt();
-		
-		System.out.println();
-		System.out.println("Product data: " + product);
-		
-		System.out.println();
-		System.out.println("Enter the number of products to be adden in stock: ");
-		int quantity = sc.nextInt();
-		product.addProducts(quantity);
-		
-		System.out.println();
-		System.out.println("Update data: " + product);
-		
-		System.out.println();
-		System.out.print("Enter the number of products to be removed from stock: ");
-		quantity = sc.nextInt();
-		product.removeProducts(quantity);
-		
-		System.out.println();
-		System.out.println("Update data: " + product);
-		
-		
-		
-		//System.out.println(product.name + ", " + product.price + ", " + product.quantity);
-		
-		
-		sc.close();
+		Worker woker = new Worker(workerName, WorkerLevel.valueOf(workerLevel), baseSalary, new Department (departmentName));
 
+		
+		System.out.print("How many contracts to this worker? ");
+		int n = sc.nextInt();
 	}
 
 }
