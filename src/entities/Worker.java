@@ -62,14 +62,14 @@ public class Worker {
 		return contracts;
 	}
 
-	public void addContract(HourContract contract ) {
+	public void addContract(HourContract contract) {
 		contracts.add(contract);
 	}
-	
-	public void removeContract(HourContract contract ) {
+
+	public void removeContract(HourContract contract) {
 		contracts.remove(contract);
 	}
-	
+
 	public double income(int year, int month) {
 		double sum = baseSalary;
 		Calendar cal = Calendar.getInstance();
@@ -77,11 +77,11 @@ public class Worker {
 			cal.setTime(c.getDate());
 			int c_year = cal.get(Calendar.YEAR);
 			int c_month = 1 + cal.get(Calendar.MONTH);
-			if(year ==  c_year && month == c_month) {
+			if (year == c_year && month == c_month) {
 				sum += c.totalValue();
 			}
 		}
 		return sum;
 	}
-	
+
 }
